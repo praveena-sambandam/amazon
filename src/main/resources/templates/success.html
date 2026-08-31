@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d0f;
+    --surface: #16161a;
+    --border: #2a2a35;
+    --accent: #e8c97d;
+    --accent2: #c97d9e;
+    --text: #f0ede6;
+    --muted: #888896;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 70% 20%, rgba(232,201,125,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 30% 80%, rgba(201,125,158,0.06) 0%, transparent 60%);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 3.5rem 3rem;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+    animation: popIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .icon-wrap {
+    width: 72px; height: 72px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, rgba(232,201,125,0.15), rgba(201,125,158,0.1));
+    border: 1px solid rgba(232,201,125,0.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    animation: scaleIn 0.5s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .checkmark {
+    width: 32px; height: 32px;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: draw 0.5s 0.4s ease forwards;
+  }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.5s 0.3s ease both;
+  }
+
+  .message {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+    animation: fadeUp 0.5s 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 1.8rem 0;
+    animation: fadeUp 0.5s 0.5s ease both;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    animation: fadeUp 0.5s 0.55s ease both;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .meta-value {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.8rem;
+    animation: fadeUp 0.5s 0.6s ease both;
+  }
+
+  .btn-primary {
+    flex: 1;
+    background: linear-gradient(135deg, var(--accent), #d4aa58);
+    color: #1a1508;
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: filter 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(232,201,125,0.2);
+  }
+
+  .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    flex: 1;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    padding: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover {
+    color: var(--text);
+    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.04);
+  }
+
+  .badge {
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    background: rgba(201,125,158,0.1);
+    border: 1px solid rgba(201,125,158,0.2);
+    border-radius: 20px;
+    padding: 4px 12px;
+    animation: fadeUp 0.5s 0.65s ease both;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="icon-wrap">
+    <svg class="checkmark" viewBox="0 0 32 32">
+      <polyline points="6,17 13,24 26,9"/>
+    </svg>
+  </div>
+
+  <h1 class="title">Insert Successfully</h1>
+  <p class="message">Your product has been added to the catalogue and is now ready for review.</p>
+
+  <div class="divider"></div>
+
+  <div class="meta">
+    <div class="meta-item">
+      <span class="meta-label">Status</span>
+      <span class="meta-value">Saved</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Catalogue</span>
+      <span class="meta-value">Products</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Action</span>
+      <span class="meta-value">Insert</span>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <a href="javascript:history.back()" class="btn-primary">+ Add Another</a>
+    <a href="#" class="btn-secondary">View All</a>
+  </div>
+
+  <span class="badge">✓ Confirmed</span>
+
+</div>
+
+</body>
+</html> 

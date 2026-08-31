@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Products</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    padding:40px;
+}
+
+.heading{
+    text-align:center;
+    color:white;
+    margin-bottom:50px;
+}
+
+.heading h1{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.heading p{
+    color:#c7bfff;
+    letter-spacing:3px;
+    font-size:18px;
+}
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:35px;
+}
+
+.card{
+    width:300px;
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:25px;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0px 10px 25px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0px 15px 35px rgba(0,0,0,0.5);
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-40px;
+    right:-40px;
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    background:linear-gradient(45deg,#8E2DE2,#4A00E0);
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    color:white;
+    margin-bottom:20px;
+}
+
+.product-name{
+    color:white;
+    font-size:28px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.stock{
+    color:#b8b8d4;
+    margin-bottom:20px;
+    font-size:17px;
+}
+
+.price{
+    color:#9d7bff;
+    font-size:35px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#7F00FF,#E100FF);
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:linear-gradient(45deg,#E100FF,#7F00FF);
+}
+
+.badge{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:#8f6cff;
+    color:white;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="heading">
+    <h1>🛍 Our Products</h1>
+    <p>BROWSE & SHOP YOUR FAVORITES</p>
+</div>
+
+<div class="container">
+
+<div class="card" th:each="p : ${pro}">
+
+    <div class="badge">
+        ID : <span th:text="${p.id}"></span>
+    </div>
+
+    <div class="icon">
+        🛒
+    </div>
+
+    <div class="product-name" th:text="${p.name}"></div>
+
+    <div class="stock">
+        Available Quantity :
+        <span th:text="${p.quantity}"></span>
+    </div>
+
+    <div class="price">
+        ₹ <span th:text="${p.price}"></span>
+    </div>
+
+    <button class="btn">
+        Add To Cart
+    </button>
+
+</div>
+
+</div>
+
+</body>
+</html>

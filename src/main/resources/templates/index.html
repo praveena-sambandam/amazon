@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Product</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#141B3A,#040B20);
+}
+
+.container{
+    width:700px;
+    background:#1E244D;
+    padding:50px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.small-title{
+    color:#B5B8C9;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:13px;
+}
+
+.small-title span{
+    color:#E7C76E;
+}
+
+h1{
+    color:white;
+    font-size:50px;
+    margin-top:10px;
+}
+
+.desc{
+    color:#B5B8C9;
+    margin:15px 0 35px;
+}
+
+label{
+    display:block;
+    color:white;
+    font-weight:600;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#141B3A;
+    border:1px solid #39427D;
+    color:white;
+    font-size:16px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#E7C76E;
+}
+
+button{
+    margin-top:30px;
+    padding:15px 35px;
+    background:#E7C76E;
+    color:black;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.nav-links{
+    margin-top:25px;
+    text-align:center;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#E7C76E;
+    font-weight:bold;
+    margin:0 15px;
+    font-size:16px;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="small-title">
+        Catalogue > <span>New Product</span>
+    </div>
+
+    <h1>Add Product</h1>
+
+    <p class="desc">
+        Fill in the details below to add a new product.
+    </p>
+
+    <form action="/abc" method="post">
+
+        <label>PRODUCT NAME</label>
+        <input type="text" name="name" placeholder="Enter Product Name" required>
+
+        <label>PRODUCT QUANTITY</label>
+        <input type="number" name="quantity" placeholder="Enter Quantity" required>
+
+        <label>PRODUCT PRICE</label>
+        <input type="number" name="price" placeholder="Enter Price" required>
+
+        <button type="submit">
+            Add Product →
+        </button>
+
+    </form>
+
+    <div class="nav-links">
+        <a href="/home">Home</a>
+        <a href="/select">All Products</a>
+    </div>
+
+</div>
+
+</body>
+</html>
